@@ -52,6 +52,8 @@
             background-position: top center;
             background-repeat: no-repeat;
             background-size: cover;
+            display: flex;
+            justify-content: center;
         }
 
 
@@ -110,10 +112,60 @@
             filter: brightness(0) saturate(100%) invert(46%) sepia(99%) saturate(3429%) hue-rotate(6deg) brightness(98%) contrast(99%);
         }
 
+        .container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
 
+        .circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            height: 300px;
+            margin: -150px 0 0 -150px;
+            border-radius: 50%;
+            pointer-events: none;
+            transform: rotate(var(--rotation, 0deg));
+            transition: transform 0.8s ease;
+        }
+
+        .month {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,.8);
+            border-radius: 50%;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            cursor: pointer;
+            pointer-events: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .month:hover {
+            transform: scale(1.15);
+        }
+
+        .center-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 22px;
+            font-weight: bold;
+        }
 
         .footer {
-            color: #ffffff;
+            background: #ffffff;
+            color: #000000;
             z-index: 1;
             position: fixed;
             bottom: 0;
@@ -121,9 +173,8 @@
         }
 
         .footer p a {
-            border-bottom: 1px dotted #ffffff;
+            border-bottom: 1px dotted #000000;
         }
-
     </style>
 
     <link rel="manifest" href="./manifest.json">
@@ -152,15 +203,67 @@
     </div>
 
 
+    <center>
+        <div class="container">
+
+            <div class="circle" id="circle">
+            </div>
+        </div>
+    </center>
 
 
     <!-- footer -->
-    <div id="footer" class="footer p-2 text-right">
+    <div id="footer" class="footer p-2 text-center">
         <p class="text-xs mt-1"><a href="https://github.com/linkevery2s/childrearing" target="_blank">src on GitHub</a>.
             <i class="fa-regular fa-copyright"></i> <a href="https://hitoshi2s.netlify.app/" target="_blank">齋藤 仁志</a>.
         </p>
 
-        </div>
+    </div>
+
+
+    <script>
+        const circle = document.getElementById("circle");
+        //const centerLabel = document.getElementById("centerLabel");
+        const months = ["4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月", "1月", "2月", "3月"];
+
+        // 円周に12個配置
+        months.forEach((m, i) => {
+            const el = document.createElement("div");
+            el.className = "month";
+            el.textContent = m;
+
+            const angle = (i / 12) * 2 * Math.PI;
+            const r = 130; // 半径
+            const x = Math.cos(angle) * r;
+            const y = Math.sin(angle) * r;
+
+            el.style.left = 150 + x - 40 + "px"; // 親の中心150px, 要素40px調整
+            el.style.top = 150 + y - 40 + "px";
+
+            el.addEventListener("click", () => selectMonth(i));
+            circle.appendChild(el);
+        });
+
+        let currentIndex = 0;
+
+        function selectMonth(i) {
+            currentIndex = i;
+            //centerLabel.textContent = months[i];
+
+            // 全ての月の色をリセット
+            document.querySelectorAll('.month').forEach(m => {
+                m.style.background = 'rgba(255,255,255,.8)';
+                m.style.color = 'black';
+                m.style.fontWeight = 'normal';
+            });
+
+            // 選択した月だけ赤くする
+            const target = document.querySelectorAll('.month')[i];
+            target.style.background = 'rgba(255,204,204,.8)';
+            target.style.color = 'red';
+            target.style.fontWeight = 'bold';
+        }
+    </script>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPP84V2NHB"></script>
