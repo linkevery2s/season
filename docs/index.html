@@ -81,7 +81,7 @@
             z-index: 2;
             width: 90%;
             max-width: 600px;
-            background: #ffffff;
+            background: rgba(255, 255, 255, 1);
             left: 50%;
             transform: translate(-50%);
             border: 5px dotted #eb6101;
@@ -138,21 +138,37 @@
             position: absolute;
             width: 80px;
             height: 80px;
-            background: rgba(255,255,255,.8);
+            background: rgba(255, 255, 255, .9);
+            font-weight: bold;
             border-radius: 50%;
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 18px;
+            font-size: 20px;
             cursor: pointer;
             pointer-events: auto;
             transition: transform 0.3s ease;
         }
 
+        .center-label {
+            background: rgba(255, 255, 255, .9);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 22px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            line-height: 95px;
+            border: 3px double #eb6101;
+        }
+
         .footer {
-            background: #ffffff;
-            color: #000000;
+            color: #ffffff;
             z-index: 1;
             position: fixed;
             bottom: 0;
@@ -160,7 +176,7 @@
         }
 
         .footer p a {
-            border-bottom: 1px dotted #000000;
+            border-bottom: 1px dotted #ffffff;
         }
     </style>
 
@@ -192,7 +208,7 @@
 
     <center>
         <div class="container">
-
+            <div class="center-label" id="centerLabel">MENU</div>
             <div class="circle" id="circle">
             </div>
         </div>
@@ -200,7 +216,7 @@
 
 
     <!-- footer -->
-    <div id="footer" class="footer p-2 text-center">
+    <div id="footer" class="footer p-2 text-right">
         <p class="text-xs mt-1"><a href="https://github.com/linkevery2s/childrearing" target="_blank">src on GitHub</a>.
             <i class="fa-regular fa-copyright"></i> <a href="https://hitoshi2s.netlify.app/" target="_blank">齋藤 仁志</a>.
         </p>
@@ -211,7 +227,7 @@
     <script>
         const circle = document.getElementById("circle");
         //const centerLabel = document.getElementById("centerLabel");
-        const months = ["4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月", "1月", "2月", "3月"];
+        const months = ["3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月", "1月", "2月"];
 
         // 円周に12個配置
         months.forEach((m, i) => {
@@ -239,16 +255,14 @@
 
             // 全ての月の色をリセット
             document.querySelectorAll('.month').forEach(m => {
-                m.style.background = 'rgba(255,255,255,.8)';
+                m.style.background = 'rgba(255,255,255,.9)';
                 m.style.color = 'black';
-                m.style.fontWeight = 'normal';
             });
 
             // 選択した月だけ赤くする
             const target = document.querySelectorAll('.month')[i];
-            target.style.background = 'rgba(255,204,204,.8)';
+            target.style.background = 'rgba(255,204,204,.9)';
             target.style.color = 'red';
-            target.style.fontWeight = 'bold';
         }
     </script>
 
