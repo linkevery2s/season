@@ -266,6 +266,7 @@
             background: #eb6101;
             cursor: pointer;
             text-align: center;
+            font-size: 13px;
         }
 
         #closed-btn1:hover,
@@ -295,9 +296,12 @@
             background: #e7e7eb;
             border: 1px solid #000000;
             border-radius: 15%;
-
+            cursor: pointer;
         }
 
+        #back:hover{
+            background: #ffffff;
+        }
 
         .footer {
             color: #ffffff;
@@ -363,7 +367,9 @@
 
     <!-- 使い方 -->
     <div id="manual"><span id="closed-btn2" class="py-2 px-3 text-xs">閉じる</span>
-        <h3 class="text-2xl text-center"><i class="fa-solid fa-book"></i> 使い方</h3>
+        <h3 class="text-2xl text-center mb-3"><i class="fa-solid fa-book"></i> 使い方</h3>
+
+        <img src="./images/install.jpg" width="100%" class= "install" alt="インストール方法">
     </div>
 
     <!-- シェア -->
@@ -376,7 +382,7 @@
     </div>
 
     <!-- back button -->
-    <div id="back" class="p-3 m-3">戻る</div>
+    <div id="back" class="p-2 mt-3 mr-3">戻る</div>
 
     <!-- footer -->
     <div id="footer" class="footer pt-2 pr-4 pb-2 text-right">
@@ -404,7 +410,7 @@
             el.textContent = m;
 
             const angle = (i / 12) * 2 * Math.PI;
-            const r = 150; // 半径
+            const r = 160; // 半径
             const x = Math.cos(angle) * r;
             const y = Math.sin(angle) * r;
 
