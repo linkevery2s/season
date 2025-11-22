@@ -36,12 +36,17 @@
 
     <style>
         html,
-        body {
+        body,
+        #main {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
             z-index: 0;
+        }
+
+        #main{
+            display: none;
         }
 
         body {
@@ -271,6 +276,28 @@
             border: 1px solid #eb6101;
         }
 
+        iframe {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            position: absolute;
+            z-index: 0;
+        }
+
+        #back{
+            display: none;
+            position: fixed;
+            z-index: 5;
+            top: 0;
+            right: 0;
+            background: #e7e7eb;
+            border: 1px solid #000000;
+            border-radius: 15%;
+
+        }
+
 
         .footer {
             color: #ffffff;
@@ -312,7 +339,7 @@
 
 
     <center>
-        <div class="container">
+        <div class="container" id="container">
             <div class="menu-circle">
                 <span class="intro top-left pl-3">はじめに</span>
                 <span class="manual top-right pr-3">使い方</span>
@@ -344,23 +371,34 @@
         <h3 class="text-2xl text-center"><i class="fa-solid fa-book"></i> シェア</h3>
     </div>
 
+    <!-- main contents -->
+    <div id="main">
+    </div>
+
+    <!-- back button -->
+    <div id="back" class="p-3 m-3">戻る</div>
 
     <!-- footer -->
     <div id="footer" class="footer pt-2 pr-4 pb-2 text-right">
-        <p class="text-xs mt-1"><a href="https://github.com/linkevery2s/childrearing" target="_blank">src on GitHub</a>.
+        <p class="text-xs mt-1"><a href="https://github.com/linkevery2s/season" target="_blank">src on GitHub</a>.
             <i class="fa-regular fa-copyright"></i> <a href="https://hitoshi2s.netlify.app/" target="_blank">齋藤 仁志</a>.
         </p>
 
     </div>
 
 
-    <script>
+    <script type="module">
         const circle = document.getElementById("circle");
         //const centerLabel = document.getElementById("centerLabel");
         const months = ["3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月", "1月", "2月"];
 
+        const main_contents = document.getElementById("main");
+
+        const container = document.querySelector(".container");
+
         // 円周に12個配置
         months.forEach((m, i) => {
+
             const el = document.createElement("div");
             el.className = "month";
             el.textContent = m;
@@ -375,13 +413,13 @@
 
             el.addEventListener("click", () => selectMonth(i));
             circle.appendChild(el);
+
         });
 
         let currentIndex = 0;
 
-        function selectMonth(i) {
+        let selectMonth = (i) => {
             currentIndex = i;
-            //centerLabel.textContent = months[i];
 
             // 全ての月の色をリセット
             document.querySelectorAll('.month').forEach(m => {
@@ -393,7 +431,33 @@
             const target = document.querySelectorAll('.month')[i];
             target.style.background = 'rgba(255,204,204,.9)';
             target.style.color = 'red';
+
+            let month;
+            month = months[i].match(/\d+/)[0];
+
+            main_contents.innerHTML = '<iframe src="./' + month + '.html"></iframe>';
+
+            //container.style.display = "none";
+
+            $('#header').hide();
+            $('#footer').hide();
+            $("#container").hide();
+            $('#main').fadeIn();
+            $("#back").fadeIn();
+
         }
+
+        const back_btn = document.querySelector("#back");
+
+        back_btn.addEventListener("click", ()=>{
+
+            $('#main').hide();
+            $("#back").hide();
+            $('#header').fadeIn();
+            $('#footer').fadeIn();
+            $("#container").fadeIn();
+
+        });
 
 
         const intro_btn = document.querySelector('.intro');
@@ -458,6 +522,7 @@
 
             $('#overlay').fadeOut();
             $('#share').fadeOut();
+
         });
 
 
