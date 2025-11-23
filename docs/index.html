@@ -45,7 +45,7 @@
             z-index: 0;
         }
 
-        #main{
+        #main {
             display: none;
         }
 
@@ -287,7 +287,7 @@
             z-index: 0;
         }
 
-        #back{
+        #back {
             display: none;
             position: fixed;
             z-index: 5;
@@ -299,7 +299,7 @@
             cursor: pointer;
         }
 
-        #back:hover{
+        #back:hover {
             background: #ffffff;
         }
 
@@ -363,13 +363,67 @@
     <!-- はじめに -->
     <div id="intro"><span id="closed-btn1" class="py-2 px-3 text-xs">閉じる</span>
         <h3 class="text-2xl text-center"><i class="fa-solid fa-book"></i> はじめに</h3>
+
+        <div>季めぐり手帖 – 日本の歳時記を楽しむ学習アプリ</div>
+        
+        ■ 概要説明
+
+        季めぐり手帖は、1年の行事や季節の自然、日本の文化をやさしく学べる“歳時記アプリ”です。
+        美しい和のデザインと直感的な円形メニューで、季節の移ろいを感じながら、子どもから大人まで気軽に楽しめます。
+
+        ■ 特長
+        季節を巡る円形メニュー
+
+        12か月が円環状に配置され、季節が巡るように月を選択できます。
+        視覚的な楽しさと操作性を両立したデザインです。
+
+        日本の年中行事がひと目でわかる
+
+        初詣、節分、七夕、十五夜など、月ごとの伝統行事を簡単に理解できます。
+        由来や歴史も分かりやすく解説。
+
+        暮らしの風習・自然をやさしく紹介
+
+        季節の草花や動物、風習、暮らしの知恵など、日本の文化を豊かに学べます。
+
+        季語にも対応
+
+        俳句で使われる「季語」を掲載。
+        文学的な感性も養われ、読書や日本語学習にも最適です。
+
+        季節の食文化も掲載
+
+        旬の食材、行事食、伝統的な料理など、食文化の背景まで学べます。
+
+        読書案内付き
+
+        季節にちなんだ青空文庫作品を紹介。
+        「雪わたり」など、名作の一節も楽しめる構成です。
+
+        ■ 対象ユーザー
+
+        小学生～大人まで
+
+        日本文化を学びたい人
+
+        俳句・文章表現を学ぶ人
+
+        季節の行事を子どもに教えたい保護者
+
+        和風デザインが好きな人
+
+        ■ ひとこと
+
+        “季節を感じる”ことは、暮らしを豊かにしてくれる大切な文化です。
+        季めぐりと一緒に、日本の四季を楽しみませんか？
+
     </div>
 
     <!-- 使い方 -->
     <div id="manual"><span id="closed-btn2" class="py-2 px-3 text-xs">閉じる</span>
         <h3 class="text-2xl text-center mb-3"><i class="fa-solid fa-book"></i> 使い方</h3>
 
-        <img src="./images/install.jpg" width="100%" class= "install" alt="インストール方法">
+        <img src="./images/install.jpg" width="100%" class="install" alt="インストール方法">
     </div>
 
     <!-- シェア -->
@@ -455,7 +509,7 @@
 
         const back_btn = document.querySelector("#back");
 
-        back_btn.addEventListener("click", ()=>{
+        back_btn.addEventListener("click", () => {
 
             $('#main').hide();
             $("#back").hide();
