@@ -116,6 +116,12 @@
             filter: brightness(0) saturate(100%) invert(46%) sepia(99%) saturate(3429%) hue-rotate(6deg) brightness(98%) contrast(99%);
         }
 
+        #img_midashi2 {
+            display: flex;
+            width: 30px;
+            position: fixed;
+         }
+
         .container {
             position: relative;
             width: 400px;
@@ -252,7 +258,6 @@
             z-index: 10;
             background: #ffffff;
             border-radius: .3em;
-            padding: .3em;
         }
 
         #closed-btn1,
@@ -283,8 +288,12 @@
             width: 100%;
             height: 100%;
             border: none;
-            position: absolute;
+            position: fixed;
             z-index: 0;
+        }
+
+        .overview {
+            height: 90%;
         }
 
         #back {
@@ -361,74 +370,73 @@
     <div id="overlay"></div>
 
     <!-- はじめに -->
-    <div id="intro"><span id="closed-btn1" class="py-2 px-3 text-xs">閉じる</span>
-        <h3 class="text-2xl text-center"><i class="fa-solid fa-book"></i> はじめに</h3>
+    <div id="intro" class="p-3"><span id="closed-btn1" class="py-2 px-3 text-xs">閉じる</span>
+        <img src="./images/icon/yacho.svg" id="img_midashi2"><h2 class="text-2xl text-center">はじめに</h2>
 
-        <div>– 日本の歳時記を楽しむ学習アプリ</div>
-        
-        ■ 概要説明
+        <div class="overflow-y-scroll overview mt-5 mx-2">
+            <h3 class="text-lg py-3">– 日本の歳時記を楽しむ学習アプリ</h3>
 
-        季めぐり手帖は、1年の行事や季節の自然、日本の文化をやさしく学べる“歳時記アプリ”です。
-        美しい和のデザインと直感的な円形メニューで、季節の移ろいを感じながら、子どもから大人まで気軽に楽しめます。
+            <h3 class="text-lg py-3">概要</h3>
 
-        ■ 特長
-        季節を巡る円形メニュー
+            <p class="py-3">季めぐり手帖は、1年の行事や季節の自然、日本の文化をやさしく学べる“歳時記アプリ”です。</p>
+            <p class="py-3">美しい和のデザインと直感的な円形メニューで、季節の移ろいを感じながら、お子さんから大人まで気軽に楽しめます。</p>
 
-        12か月が円環状に配置され、季節が巡るように月を選択できます。
-        視覚的な楽しさと操作性を両立したデザインです。
+            <h3 class="text-lg py-3">特徴</h3>
+            <p class="py-3">・季節を巡る円形メニュー</p>
 
-        日本の年中行事がひと目でわかる
+            <p class="py-3">12か月が円環状に配置され、季節が巡るように月を選択できます。</p>
 
-        初詣、節分、七夕、十五夜など、月ごとの伝統行事を簡単に理解できます。
-        由来や歴史も分かりやすく解説。
+            <p class="py-3">視覚的な楽しさと操作性を両立したデザインです。</p>
 
-        暮らしの風習・自然をやさしく紹介
+            <p class="py-3">・日本の年中行事がひと目でわかる</p>
 
-        季節の草花や動物、風習、暮らしの知恵など、日本の文化を豊かに学べます。
+            <p class="py-3">初詣、節分、七夕、十五夜など、月ごとの伝統行事を簡単に理解できます。</p>
 
-        季語にも対応
+            <p class="py-3">・暮らしの風習・自然をやさしく紹介</p>
 
-        俳句で使われる「季語」を掲載。
-        文学的な感性も養われ、読書や日本語学習にも最適です。
+            <p class="py-3">季節の草花や動物、風習、暮らしの知恵など、日本の文化を豊かに学べます。</p>
 
-        季節の食文化も掲載
+            <p class="py-3">・季語にも対応</p>
 
-        旬の食材、行事食、伝統的な料理など、食文化の背景まで学べます。
+            <p class="py-3">俳句で使われる「季語」を掲載。</p>
 
-        読書案内付き
+            <p class="py-3">文学的な感性も養われ、読書や日本語学習にも最適です。</p>
 
-        季節にちなんだ青空文庫作品を紹介。
-        「雪わたり」など、名作の一節も楽しめる構成です。
+            <p class="py-3">・季節の食文化も掲載</p>
 
-        ■ 対象ユーザー
+            <p class="py-3">旬の食材、行事食、伝統的な料理など、食文化の背景まで学べます。</p>
 
-        小学生～大人まで
+            <p class="py-3">・読書案内付き</p>
 
-        日本文化を学びたい人
+            <p class="py-3">季節にちなんだ青空文庫作品を紹介。</p>
+            <p class="py-3">「雪わたり」など、名作の一節も楽しめる構成です。</p>
 
-        俳句・文章表現を学ぶ人
+            <h3 class="text-lg py-3">一言</h3>
 
-        季節の行事を子どもに教えたい保護者
+            <p class="py-3">“季節を感じる”ことは、暮らしを豊かにしてくれる大切な文化です。</p>
+            <p class="py-3">季めぐりと一緒に、日本の四季を楽しみませんか？</p>
 
-        和風デザインが好きな人
+            <p class="py-3">齋藤　仁志.</p>
 
-        ■ ひとこと
-
-        “季節を感じる”ことは、暮らしを豊かにしてくれる大切な文化です。
-        季めぐりと一緒に、日本の四季を楽しみませんか？
+        </div>
 
     </div>
 
     <!-- 使い方 -->
-    <div id="manual"><span id="closed-btn2" class="py-2 px-3 text-xs">閉じる</span>
-        <h3 class="text-2xl text-center mb-3"><i class="fa-solid fa-book"></i> 使い方</h3>
+    <div id="manual" class="p-3"><span id="closed-btn2" class="py-2 px-3 text-xs">閉じる</span>
+        <img src="./images/icon/kokyo.svg" id="img_midashi2"><h2 class="text-2xl text-center">使い方</h2>
 
+        <h2 class="text-lg py-3">インストール方法</h2>
+
+        <p class="text-sm py-3">PWAに対応しているため、WEBブラウザの「ホーム画面に追加」からインストールできます。</p>
         <img src="./images/install.jpg" width="100%" class="install" alt="インストール方法">
+
     </div>
 
     <!-- シェア -->
-    <div id="share"><span id="closed-btn3" class="py-2 px-3 text-xs">閉じる</span>
-        <h3 class="text-2xl text-center"><i class="fa-solid fa-book"></i> シェア</h3>
+    <div id="share" class="p-3"><span id="closed-btn3" class="py-2 px-3 text-xs">閉じる</span>
+        <img src="./images/icon/yubinkyoku.svg" id="img_midashi2"><h2 class="text-2xl text-center">シェア</h2>
+
     </div>
 
     <!-- main contents -->
