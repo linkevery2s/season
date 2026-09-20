@@ -245,7 +245,7 @@
 
         #intro,
         #manual,
-        #share {
+        #update {
             display: none;
             height: 80%;
             max-height: 800px;
@@ -356,7 +356,7 @@
             <div class="menu-circle">
                 <span class="intro top-left pl-3">はじめに</span>
                 <span class="manual top-right pr-3">使い方</span>
-                <span class="share bottom-left pl-2">シェア</span>
+                <span class="update bottom-left pl-2">更新情報</span>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-WMoBJRTdA1bmN_SmQ-bsNGeLs1l737d3c9BUNuErjH-KBw/viewform"
                     target="_blank"><span class="question bottom-right pr-3">お問合せ</span></a>
             </div>
@@ -433,9 +433,9 @@
 
     </div>
 
-    <!-- シェア -->
-    <div id="share" class="p-3"><span id="closed-btn3" class="py-2 px-3 text-xs">閉じる</span>
-        <img src="./images/icon/yubinkyoku.svg" id="img_midashi2"><h2 class="text-2xl text-center">シェア</h2>
+    <!-- 更新情報 -->
+    <div id="update" class="p-3"><span id="closed-btn3" class="py-2 px-3 text-xs">閉じる</span>
+        <img src="./images/icon/yubinkyoku.svg" id="img_midashi2"><h2 class="text-2xl text-center">更新情報</h2>
 
     </div>
 
@@ -444,7 +444,7 @@
     </div>
 
     <!-- back button -->
-    <div id="back" class="p-2 mt-3 mr-3">戻る</div>
+    <div id="back" class="p-2 mt-3 mr-5">戻る</div>
 
     <!-- footer -->
     <div id="footer" class="footer pt-2 pr-4 pb-2 text-right">
@@ -530,13 +530,13 @@
 
         const intro_btn = document.querySelector('.intro');
         const manual_btn = document.querySelector('.manual');
-        const share_btn = document.querySelector('.share');
+        const update_btn = document.querySelector('.update');
 
         const overlay = document.querySelector('#overlay');
 
         const manual = document.querySelector('#manual');
         const intro = document.querySelector('#intro');
-        const share = document.querySelector('#share');
+        const update = document.querySelector('#update');
 
         intro_btn.addEventListener("click", () => {
 
@@ -552,10 +552,10 @@
 
         });
 
-        share_btn.addEventListener("click", () => {
+        update_btn.addEventListener("click", () => {
 
             $('#overlay').fadeIn();
-            $('#share').fadeIn();
+            $('#update').fadeIn();
 
         });
 
@@ -564,7 +564,7 @@
             $('#overlay').fadeOut();
             $('#intro').fadeOut();
             $('#manual').fadeOut();
-            $('#share').fadeOut();
+            $('#update').fadeOut();
 
         })
 
@@ -589,7 +589,7 @@
         closed_btn3.addEventListener("click", () => {
 
             $('#overlay').fadeOut();
-            $('#share').fadeOut();
+            $('#update').fadeOut();
 
         });
 
